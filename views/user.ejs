@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <form action="/<%= user._id %>" method="post">
+        <input type="hidden" name="_method" value="<%= user._id %>" id="userId" />
+    </form>
+
+    <input type="text" name="name" placeholder="Name" id="name" /><br>
+    <input type="text" name="lastname" placeholder="lastName" id="lastname" /><br>
+    <input type="number" name="age" placeholder="Age" id="age" /><br>
+    <input type="email" name="email" placeholder="Email" id="email" /><br>
+    <input type="text" name="address" placeholder="Address" id="address" /><br>
+    <button id="edit">Edit</button>
+
+    <p>
+        Name: <%= user.name %> <br>
+        LastName: <%= user.lastname %> <br>
+        Age: <%= user.age %> <br>
+        Email: <%= user.email %> <br>
+        Address: <%= user.address %> <br>
+    </p>
+</body>
+
+<script src="/javascripts/index.js"></script>
+
+</html>
