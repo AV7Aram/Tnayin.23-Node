@@ -6,8 +6,6 @@ const indexController = new IndexController();
 
 router.get('/', indexController.home);
 
-router.post('/add-user', indexController.addUser);
-
 router.get('/:id', indexController.userPage);
 
 router.delete('/:id', indexController.deleteUser);

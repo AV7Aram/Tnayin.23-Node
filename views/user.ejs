@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>
-        <%= title %>
-    </title>
+    <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-
 <body>
-    <h1>
-        <%= title %>
-    </h1>
-    <form action="/<%= user._id %>" method="post">
-        <input type="hidden" name="_method" value="<%= user._id %>" id="userId" />
+    <h1><%= title %></h1>
+    <form class="auth-form">
+        <input type="hidden" id="userId" value="<%= user._id %>" />
+        <input type="text" name="name" placeholder="Name" id="name" value="<%= user.name %>" />
+        <input type="text" name="lastname" placeholder="LastName" id="lastname" value="<%= user.lastname %>" />
+        <input type="number" name="age" placeholder="Age" id="age" value="<%= user.age %>" />
+        <input type="email" name="email" placeholder="Email" id="email" value="<%= user.email %>" />
+        <input type="text" name="address" placeholder="Address" id="address" value="<%= user.address %>" />
+        <button id="edit" type="button">Edit</button>
     </form>
-
-    <input type="text" name="name" placeholder="Name" id="name" /><br>
-    <input type="text" name="lastname" placeholder="lastName" id="lastname" /><br>
-    <input type="number" name="age" placeholder="Age" id="age" /><br>
-    <input type="email" name="email" placeholder="Email" id="email" /><br>
-    <input type="text" name="address" placeholder="Address" id="address" /><br>
-    <button id="edit">Edit</button>
-
-    <p>
-        Name: <%= user.name %> <br>
-        LastName: <%= user.lastname %> <br>
-        Age: <%= user.age %> <br>
-        Email: <%= user.email %> <br>
-        Address: <%= user.address %> <br>
-    </p>
+    <div class="user-info">
+        <p>
+            <strong>Name:</strong> <%= user.name %> 
+            <strong>LastName:</strong> <%= user.lastname %> 
+            <strong>Age:</strong> <%= user.age %> 
+            <strong>Email:</strong> <%= user.email %> 
+            <strong>Address:</strong> <%= user.address %> 
+        </p>
+    </div>
 </body>
-
 <script src="/javascripts/index.js"></script>
-
 </html>

@@ -18,10 +18,6 @@ class IndexService {
         return db.collection('users').find().count();
     }
 
-    async addUser(user) {
-        return db.collection('users').insertOne(user);
-    }
-
     async getUserById(id) {
         return db.collection('users').findOne({ _id: new ObjectId(id) });
     }

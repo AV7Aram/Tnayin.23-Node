@@ -1,15 +1,11 @@
 const { ObjectId } = require('mongodb');
+const { editSchema } = require('../schema/schema');
 
 class IndexController {
     async home(req, res, next) {
         const users = await req.app.locals.services.index.getAllUsers();
         const count = await req.app.locals.services.index.getUsersCount();
         res.render('index', { title: 'Users', users, count });
-    };
-
-    async addUser(req, res) {
-        await IndexService.addUser(req.body);
-        res.redirect('/');
     };
 
     async userPage(req, res) {
@@ -29,9 +25,14 @@ class IndexController {
 
     async updateUser(req, res) {
         const { id } = req.params;
+        const { error } = editSchema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ success: false, message: error.details[0].message });
+        }
         await req.app.locals.services.index.updateUser(id, req.body);
         res.json({ success: true });
     };
+
 }
 
 module.exports = IndexController;

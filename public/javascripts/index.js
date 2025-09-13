@@ -15,7 +15,7 @@ del.forEach(button => {
     })
 })
 
-if (edit) { 
+if (edit) {
     edit.addEventListener('click', (e) => {
         const id = document.getElementById('userId').value
         const name = document.getElementById('name').value
@@ -34,6 +34,9 @@ if (edit) {
                 if (data.success) {
                     alert('User edited successfully')
                     window.location.href = '/'
+                }
+                else {
+                    alert(data.message)
                 }
             })
             .catch(err => console.log(err))
